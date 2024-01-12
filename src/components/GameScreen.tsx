@@ -5,7 +5,7 @@ import Rules from "./Rules";
 import Timer from "./Timer";
 
 interface GameScreenProps {
-  onGameComplete: (moves: number, time: number) => void;
+  onGameComplete: () => void;
   onReturnToMenu: () => void;
   rods: number;
   discs: number;

@@ -6,7 +6,7 @@ import GameBoardContainer from "./GameBoardContainer";
 import { useMoves } from "../contexts/useContexts";
 
 interface GameBoardProps {
-  onWin: (moves: number, time: number) => void;
+  onWin: () => void;
   initalRods: number;
   initialDiscs: number;
   onGoToMenu: () => void;
@@ -35,10 +35,10 @@ const GameBoard: React.FC<GameBoardProps> = ({
 
   // Check if the game is won when the rods state changes
   useEffect(() => {
-    if (rods[rods.length - 1].length === 4) {
-      onWin(0, 0);
+    if (rods[rods.length - 1].length === initialDiscs) {
+      onWin();
     }
-  }, [rods, onWin]);
+  }, [rods, onWin, initialDiscs]);
 
   // Handle keydown events
   const handleKeyDown = (key: string) => {
